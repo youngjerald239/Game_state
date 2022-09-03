@@ -21,11 +21,13 @@ export class StandingLeft extends State {
     constructor(player) {
         super('STANDING LEFT')
         this.player = player
+        
 
     }
     enter(){
-        this.player.frameY = 0
+        this.player.frameY = 1
         this.player.speed = 0
+        this.player.maxFrame = 6
     }
     handleInput(input){
         if (input === 'PRESS right') this.player.setState(states.RUNNING_RIGHT) // set state to StandingRight 
@@ -43,6 +45,7 @@ export class StandingRight extends State {
     enter(){
         this.player.frameY = 0
         this.player.speed = 0
+        this.player.maxFrame = 6
     }
     handleInput(input){
         if (input === 'PRESS left') this.player.setState(states.RUNNING_LEFT)// set state to StandingLeft
@@ -55,11 +58,13 @@ export class SittingLeft extends State {
     constructor(player) {
         super('SITTING LEFT')
         this.player = player
+        
 
     }
     enter(){
         this.player.frameY = 9
         this.player.speed = 0
+        this.player.maxFrame = 4
     }
     handleInput(input){
         if (input === 'PRESS right') this.player.setState(states.SITTING_RIGHT) // set state to StandingRight 
@@ -75,6 +80,7 @@ export class SittingRight extends State {
     enter(){
         this.player.frameY = 8
         this.player.speed = 0
+        this.player.maxFrame = 4
     }
     handleInput(input){
         if (input === 'PRESS left') this.player.setState(states.SITTING_LEFT) // set state to StandingRight 
@@ -90,6 +96,7 @@ export class RunningLeft extends State {
     enter(){
         this.player.frameY = 7
         this.player.speed = -this.player.maxSpeed
+        this.player.maxFrame = 8
     }
     handleInput(input){
         if (input === 'PRESS right') this.player.setState(states.RUNNING_RIGHT) // set state to StandingRight 
@@ -106,6 +113,7 @@ export class RunningRight extends State {
     enter(){
         this.player.frameY = 6
         this.player.speed = this.player.maxSpeed 
+        this.player.maxFrame = 8
     }
     handleInput(input){
         if (input === 'PRESS left') this.player.setState(states.RUNNING_LEFT) // set state to StandingRight 
@@ -123,6 +131,7 @@ export class JumpingLeft extends State {
         this.player.frameY = 3
         if (this.player.onGround()) this.player.vy -= 40
         this.player.speed = -this.player.maxSpeed * 0.5
+        this.player.maxFrame = 6
        
     }
     handleInput(input){
@@ -141,6 +150,7 @@ export class JumpingRight extends State {
         this.player.frameY = 2
         if (this.player.onGround()) this.player.vy -= 40
         this.player.speed = this.player.maxSpeed * 0.5
+        this.player.maxFrame = 6
        
     }
     handleInput(input){
@@ -157,6 +167,7 @@ export class FallingLeft extends State {
     }
     enter(){
         this.player.frameY = 5
+        this.player.maxFrame = 6
     }
     handleInput(input){
         if (input === 'PRESS right') this.player.setState(states.FALLING_RIGHT) // set state to StandingRight 
@@ -171,6 +182,7 @@ export class FallingRight extends State {
     }
     enter(){
         this.player.frameY = 4
+        this.player.maxFrame = 6
     }
     handleInput(input){
         if (input === 'PRESS left') this.player.setState(states.FALLING_LEFT) // IGHTset state to StandingRight 

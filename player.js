@@ -15,7 +15,7 @@ export default class Player {
         this.weight = 1
         this.frameX = 0
         this.frameY = 0
-        this.maxFrame = 5
+        this.maxFrame = 6
         this.speed = 0
         this.maxSpeed = 10
 
