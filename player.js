@@ -4,7 +4,7 @@ export default class Player {
     constructor(gameWidth, gameHeight){
         this.gameWidth = gameWidth
         this.gameHeight = gameHeight
-        this.states = [new StandingLeft, new StandingRight]
+        this.states = [new StandingLeft(this), new StandingRight(this)]
         this.currentState = this.states[0]
         this.image = document.getElementById("dogImage")
         this.width = 200
@@ -17,7 +17,6 @@ export default class Player {
     }
     draw(context){
         context.drawImage(this.image, this.width * this.frameX, this.height * this.frameY, this.width, this.height, this.x, this.y, this.width, this.height)
-
     }
     update(input){
         this.currentState.handleInput(input)
